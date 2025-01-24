@@ -41,7 +41,7 @@ const createEmployeesTable=()=>{
 
 
 const createDepartmentTable=()=>{
-    const q=`CREATE TABLE IF NOT EXISTS department(
+    const q=`CREATE TABLE IF NOT EXISTS departments(
         id INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(50),
         employees INT(10)
@@ -77,10 +77,10 @@ connectquery(q);
 
 
 const insertIntoDepartment=()=>{
-    const q=`INSERT INTO department(name, employees) 
-            SELECT depatment, COUNT(*) 
-            FROM employees 
-            GROUP BY depatment;`;
+    const q=`INSERT INTO departments(name, employees) 
+                SELECT depatment, COUNT(*) 
+                FROM employees 
+                GROUP BY depatment;`;
     connectquery(q);
 }
 
@@ -90,15 +90,25 @@ const alterTable=(tablename,newname)=>{
     connectquery(q);
 }
 
+const deleteColmun=(tablename,columnname)=>{
+    const q=`ALTER TABLE ${tablename} DROP COLUMN ${columnname}`;
+}
+
 const dropTable=(tablename)=>{
     const q=`DROP TABLE ${tablename}`;
     connectquery(q);
 }
 
-const selectAll=()=>{
+const selectAllEmployees=()=>{
     const q=`SELECT * FROM employees`;
     connectquery(q);
 }
+
+const selectAllDepartments=()=>{
+    const q=`SELECT * FROM departments`;
+    connectquery(q);
+}
+
 
 const selectSecondMostearingEmployee=()=>{
     const q=`
@@ -107,3 +117,4 @@ const selectSecondMostearingEmployee=()=>{
     `;
     connectquery(q);
 }
+
