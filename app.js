@@ -90,8 +90,14 @@ const alterTable=(tablename,newname)=>{
     connectquery(q);
 }
 
-const deleteColmun=(tablename,columnname)=>{
+const deleteTableColmun=(tablename,columnname)=>{
     const q=`ALTER TABLE ${tablename} DROP COLUMN ${columnname}`;
+    connectquery(q);
+}
+
+const addTableColumn=(tablename,columnnamewithdatatype)=>{
+    const q=`ALTER TABLE ADD COLUMN ${columnnamewithdatatype}`;
+    connectquery(q);
 }
 
 const dropTable=(tablename)=>{
