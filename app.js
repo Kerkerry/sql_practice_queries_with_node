@@ -129,4 +129,12 @@ const selectSecondMostearingEmployee=()=>{
     connectquery(q);
 }
 
-// const joinEmployeesTableandDepartmentsTable=()=>
+const joinEmployeesTableandDepartmentsTable=()=>{
+    const q=`SELECT e.first_name, d.name
+                FROM employees e
+                JOIN departments d
+                ON e.department_id=d.id`;
+    connectquery(q);
+}
+
+joinEmployeesTableandDepartmentsTable();
