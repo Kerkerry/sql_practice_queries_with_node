@@ -51,7 +51,7 @@ const createDepartmentTable=()=>{
 
 
 const insertIntoEmployees=()=>{
-    const q=`INSERT INTO employees (first_name, second_name, depatment, salary, profession) 
+    const q=`INSERT INTO employees (first_name, second_name, department, salary, profession) 
     VALUES ('Alice', 'Smith', 'Marketing', 60000.00, 'Marketing Manager'),
 ('Bob', 'Johnson', 'Sales', 75000.00, 'Sales Representative'),
 ('Charlie', 'Williams', 'Engineering', 90000.00, 'Software Engineer'),
@@ -96,7 +96,12 @@ const deleteTableColmun=(tablename,columnname)=>{
 }
 
 const addTableColumn=(tablename,columnnamewithdatatype)=>{
-    const q=`ALTER TABLE ADD COLUMN ${columnnamewithdatatype}`;
+    const q=`ALTER TABLE ${tablename} ADD COLUMN ${columnnamewithdatatype}`;
+    connectquery(q);
+}
+
+const renameColumn=(tablename,columnname,newcolumnname)=>{
+    const q=`ALTER TABLE ${tablename} RENAME COLUMN ${columnname} TO ${newcolumnname}`;
     connectquery(q);
 }
 
@@ -124,3 +129,4 @@ const selectSecondMostearingEmployee=()=>{
     connectquery(q);
 }
 
+// const joinEmployeesTableandDepartmentsTable=()=>
