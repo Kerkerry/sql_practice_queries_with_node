@@ -6,7 +6,7 @@ const connection=mysql.createConnection(
         user:'root',
         port:3306,
         password:'',
-        database:'demo'
+        database:'XYZorganization'
     }
 );
 
@@ -16,6 +16,11 @@ const connectquery=(q)=> connection.query(q,(err,result)=>{
     }
     console.log(result);  
 })
+
+const createDatabase=()=>{
+    const q=`CREATE DATABASE IF NOT EXISTS XYZorganization`;
+    connectquery(q);
+}
 
 const showTables=()=>{
     const q=`SHOW TABLES`;
@@ -78,11 +83,8 @@ const selectAll=()=>{
 
 const selectSecondMostearingEmployee=()=>{
     const q=`
-    SELECT MAX(salary) as Second_Top FROM employees
+    SELECT MAX(salary) as SECOND_TOP_SALARY FROM employees
     WHERE salary<(SELECT MAX(salary)  FROM employees);
     `;
     connectquery(q);
 }
-
-
-
