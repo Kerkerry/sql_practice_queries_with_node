@@ -1,6 +1,6 @@
 # HOW to run the queries
 1. I use mysql database
-2. Go at the top of the file in where it says connection check for the db configurations
+2. Go at the top of the file in where it says connection check for the db configurations in the app.js file
 3. Using the terminal
 4. Run npm install
 5. invoke createDatabase function, this will create the database
