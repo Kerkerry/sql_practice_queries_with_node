@@ -27,7 +27,7 @@ const showTables=()=>{
     connectquery(q);
 }
 
-const createEmployeeTable=()=>{
+const createEmployeesTable=()=>{
     const q=`CREATE TABLE IF NOT EXISTS employees(
         id INT PRIMARY KEY AUTO_INCREMENT,
         first_name VARCHAR(50),
@@ -39,6 +39,15 @@ const createEmployeeTable=()=>{
     connectquery(q);
 }
 
+
+const createDepartmentTable=()=>{
+    const q=`CREATE TABLE IF NOT EXISTS department(
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(50),
+        employees INT(10)
+    )`;
+    connectquery(q);
+}
 
 
 const insertIntoEmployees=()=>{
