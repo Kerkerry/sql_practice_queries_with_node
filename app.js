@@ -75,6 +75,16 @@ const insertIntoEmployees=()=>{
 connectquery(q);
 }
 
+
+const insertIntoDepartment=()=>{
+    const q=`INSERT INTO department(name, employees) 
+            SELECT depatment, COUNT(*) 
+            FROM employees 
+            GROUP BY depatment;`;
+    connectquery(q);
+}
+
+
 const alterTable=(tablename,newname)=>{
     const q=`ALTER TABLE ${tablename} RENAME TO ${newname};`;
     connectquery(q);
