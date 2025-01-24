@@ -34,10 +34,7 @@ const createEmployeeTable=()=>{
     connectquery(q);
 }
 
-const alterTable=(tablename,newname)=>{
-    const q=`ALTER TABLE ${tablename} RENAME TO ${newname};`;
-    connectquery(q);
-}
+
 
 const insertIntoEmployees=()=>{
     const q=`INSERT INTO employees (first_name, second_name, depatment, salary, profession) 
@@ -62,6 +59,16 @@ const insertIntoEmployees=()=>{
 ('Sophia', 'Clark', 'Finance', 85000.00, 'Investment Analyst'),
 ('Thomas', 'Lewis', 'HR', 70000.00, 'Training Specialist');`;
 connectquery(q);
+}
+
+const alterTable=(tablename,newname)=>{
+    const q=`ALTER TABLE ${tablename} RENAME TO ${newname};`;
+    connectquery(q);
+}
+
+const dropTable=(tablename)=>{
+    const q=`DROP TABLE ${tablename}`;
+    connectquery(q);
 }
 
 const selectAll=()=>{
