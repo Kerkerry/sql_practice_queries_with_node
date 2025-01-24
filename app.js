@@ -76,5 +76,13 @@ const selectAll=()=>{
     connectquery(q);
 }
 
-selectAll();
+const selectSecondMostearingEmployee=()=>{
+    const q=`
+    SELECT MAX(salary) as Second_Top FROM employees
+    WHERE salary<(SELECT MAX(salary)  FROM employees);
+    `;
+    connectquery(q);
+}
+
+
 
